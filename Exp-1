@@ -1,0 +1,62 @@
+# Experiment 1: Evidence Acquisition Using AccessData FTK Imager
+
+## Overview
+Forensic Toolkit (FTK) is a computer forensics software product created by AccessData[cite: 1]. FTK Imager is a free version offering key functionalities for acquiring and analyzing digital forensic evidence[cite: 1].
+
+This experiment covers two primary types of acquisition[cite: 1]:
+* **Volatile Memory Acquisition (RAM)**[cite: 1]
+* **Non-Volatile Memory Acquisition (Hard Disk / Disk Image)**[cite: 1]
+
+---
+
+## Modes of Deployment
+1. **Portable Version (Live Acquisition):** Run FTK Imager directly from a USB drive or external HDD on the target machine while it is powered on[cite: 1].
+2. **Investigator Installation (Static Acquisition):** Installed directly on the examiner's machine[cite: 1]. The target drive must be attached via a hardware **write blocker** to preserve evidence integrity[cite: 1].
+
+---
+
+## Step-by-Step Procedure
+
+### Part 1: Volatile Memory Acquisition (RAM)
+
+1. Launch **AccessData FTK Imager**[cite: 1].
+2. Click on the **Capture Memory** icon (volatile memory icon) in the toolbar[cite: 1].
+3. Specify the **Destination Path** and **Destination Filename** (e.g., `memdump.mem`)[cite: 1].
+4. Configure optional parameters[cite: 1]:
+   * **Include pagefile:** Captures `pagefile.sys` (located under the `C:` partition), which stores virtual memory data extended from RAM[cite: 1].
+   * **Create AD1 file:** Option to save in FTK's custom image format (`.ad1`) for subsequent analysis[cite: 1].
+5. Click **Capture Memory** to start the process[cite: 1].
+6. Once completed, the raw memory dump will be saved with a `.mem` extension[cite: 1].
+
+---
+
+### Part 2: Non-Volatile Memory Acquisition (Disk Image)
+
+1. Open FTK Imager and click **File > Create Disk Image**[cite: 1].
+2. Select the **Source Evidence Type**:
+   * Physical Drive[cite: 1]
+   * Logical Drive[cite: 1]
+   * Image File[cite: 1]
+   * Contents of a Folder[cite: 1]
+   * Forensics Device (Multiple CD/DVD)[cite: 1]
+3. Select the specific target drive from the list[cite: 1].
+4. Choose the preferred **Image Format**:
+   * **Raw (dd):** Uncompressed bit-stream copy without headers or metadata; widely compatible[cite: 1].
+   * **SMART:** Bit-stream format designed for Linux file systems with standard headers and section CRCs[cite: 1].
+   * **E01 (EnCase):** Compressed format containing header/footer metadata, case details, and hash verification[cite: 1].
+   * **AFF (Advanced Forensic Format):** Open-standard extensible image format[cite: 1].
+5. Fill in the **Evidence Item Information** (Case Number, Evidence Number, Description, Examiner Name, Notes)[cite: 1].
+6. Configure **Destination Settings**:
+   * Set output directory and image filename[cite: 1].
+   * Set **Image Fragment Size (MB)** (Set to `0` if fragmentation is not desired)[cite: 1].
+   * Set Compression level (0–9)[cite: 1].
+7. Enable **"Verify images after they are created"** to compute and compare cryptographic checksums (MD5/SHA1) automatically after capture[cite: 1].
+8. Click **Start** to initiate acquisition[cite: 1].
+
+---
+
+## Verification & Output Analysis
+Upon completion of the image creation process[cite: 1]:
+* An **Image Summary** dialog appears displaying computed MD5 and SHA1 hashes[cite: 1].
+* Checksum matching confirms data integrity during acquisition[cite: 1].
+* A summary text file containing details, acquisition segment lists, and hash verification results is stored in the destination folder[cite: 1].
