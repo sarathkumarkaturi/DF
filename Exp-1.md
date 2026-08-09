@@ -20,7 +20,8 @@ FTK Imager is a computer forensic software used for acquiring and analyzing digi
 
 Launch AccessData FTK Imager 4.7.1.2 and select the option Create Disk Image from the welcome screen as shown below.
 
-<img width="171" height="121" alt="1" src="https://github.com/user-attachments/assets/92a639b0-cd39-4377-a8b1-e54a6a5180a3" />
+<img width="1033" height="657" alt="Screenshot 2026-08-09 230512" src="https://github.com/user-attachments/assets/f37863a7-9a10-4b8a-b6e6-cbf5a074dfe9" />
+
 
 
 
