@@ -1,62 +1,175 @@
 # Experiment 1: Evidence Acquisition Using AccessData FTK Imager
 
-## Overview
-Forensic Toolkit (FTK) is a computer forensics software product created by AccessData[cite: 1]. FTK Imager is a free version offering key functionalities for acquiring and analyzing digital forensic evidence[cite: 1].
+## Aim
 
-This experiment covers two primary types of acquisition[cite: 1]:
-* **Volatile Memory Acquisition (RAM)**[cite: 1]
-* **Non-Volatile Memory Acquisition (Hard Disk / Disk Image)**[cite: 1]
+To acquire a forensic disk image from a physical storage device using AccessData FTK Imager and verify the integrity of the acquired image using MD5 and SHA1 hash values.
 
----
+## Software Used
 
-## Modes of Deployment
-1. **Portable Version (Live Acquisition):** Run FTK Imager directly from a USB drive or external HDD on the target machine while it is powered on[cite: 1].
-2. **Investigator Installation (Static Acquisition):** Installed directly on the examiner's machine[cite: 1]. The target drive must be attached via a hardware **write blocker** to preserve evidence integrity[cite: 1].
+- AccessData FTK Imager 4.7.1.2
+- Windows
 
----
+## Introduction
 
-## Step-by-Step Procedure
+FTK Imager is a computer forensic tool developed by AccessData. It is used for acquiring and analyzing digital forensic evidence.
 
-### Part 1: Volatile Memory Acquisition (RAM)
+FTK Imager can acquire:
 
-1. Launch **AccessData FTK Imager**[cite: 1].
-2. Click on the **Capture Memory** icon (volatile memory icon) in the toolbar[cite: 1].
-3. Specify the **Destination Path** and **Destination Filename** (e.g., `memdump.mem`)[cite: 1].
-4. Configure optional parameters[cite: 1]:
-   * **Include pagefile:** Captures `pagefile.sys` (located under the `C:` partition), which stores virtual memory data extended from RAM[cite: 1].
-   * **Create AD1 file:** Option to save in FTK's custom image format (`.ad1`) for subsequent analysis[cite: 1].
-5. Click **Capture Memory** to start the process[cite: 1].
-6. Once completed, the raw memory dump will be saved with a `.mem` extension[cite: 1].
+- Volatile memory (RAM)
+- Non-volatile memory such as hard disks and USB drives
+- Physical drives
+- Logical drives
+- Image files
+- Contents of folders
+- CDs/DVDs
 
----
+In this experiment, a physical USB storage device was acquired and converted into a forensic disk image.
 
-### Part 2: Non-Volatile Memory Acquisition (Disk Image)
+## Procedure
 
-1. Open FTK Imager and click **File > Create Disk Image**[cite: 1].
-2. Select the **Source Evidence Type**:
-   * Physical Drive[cite: 1]
-   * Logical Drive[cite: 1]
-   * Image File[cite: 1]
-   * Contents of a Folder[cite: 1]
-   * Forensics Device (Multiple CD/DVD)[cite: 1]
-3. Select the specific target drive from the list[cite: 1].
-4. Choose the preferred **Image Format**:
-   * **Raw (dd):** Uncompressed bit-stream copy without headers or metadata; widely compatible[cite: 1].
-   * **SMART:** Bit-stream format designed for Linux file systems with standard headers and section CRCs[cite: 1].
-   * **E01 (EnCase):** Compressed format containing header/footer metadata, case details, and hash verification[cite: 1].
-   * **AFF (Advanced Forensic Format):** Open-standard extensible image format[cite: 1].
-5. Fill in the **Evidence Item Information** (Case Number, Evidence Number, Description, Examiner Name, Notes)[cite: 1].
-6. Configure **Destination Settings**:
-   * Set output directory and image filename[cite: 1].
-   * Set **Image Fragment Size (MB)** (Set to `0` if fragmentation is not desired)[cite: 1].
-   * Set Compression level (0–9)[cite: 1].
-7. Enable **"Verify images after they are created"** to compute and compare cryptographic checksums (MD5/SHA1) automatically after capture[cite: 1].
-8. Click **Start** to initiate acquisition[cite: 1].
+### Step 1: Open FTK Imager
 
----
+Open **AccessData FTK Imager 4.7.1.2**.
 
-## Verification & Output Analysis
-Upon completion of the image creation process[cite: 1]:
-* An **Image Summary** dialog appears displaying computed MD5 and SHA1 hashes[cite: 1].
-* Checksum matching confirms data integrity during acquisition[cite: 1].
-* A summary text file containing details, acquisition segment lists, and hash verification results is stored in the destination folder[cite: 1].
+Navigate to the option for creating a disk image.
+
+![Open FTK Imager](screenshots/1.png)
+
+### Step 2: Select Evidence Source
+
+Select **Physical Drive** and click **Next**.
+
+![Select Source](screenshots/2.png)
+
+### Step 3: Select Physical Drive
+
+Select the physical drive that needs to be acquired.
+
+The device used in this experiment was:
+
+**SanDisk Cruzer Blade USB Device**
+
+Click **Finish**.
+
+![Select Drive](screenshots/3.png)
+
+### Step 4: Select Image Type
+
+Select **Raw (dd)** and click **Next**.
+
+![Select Image Type](screenshots/4.png)
+
+### Step 5: Enter Evidence Information
+
+The following evidence information was entered:
+
+- Case Number: 1
+- Evidence Number: 1
+- Unique Description: DF
+- Examiner: SARATH KATURI
+- Notes: EXP 1
+
+Click **Next**.
+
+![Evidence Information](screenshots/5.png)
+
+### Step 6: Select Image Destination
+
+The image was saved in the following destination:
+
+`D:\3-1\Digital Forensics`
+
+Image Filename:
+
+`diskimage`
+
+Image Fragment Size:
+
+`0 MB`
+
+![Image Destination](screenshots/6.png)
+
+### Step 7: Create Image
+
+The source and destination information were displayed.
+
+The option **Verify images after they are created** was selected.
+
+Click **Start** to begin the acquisition.
+
+![Create Image](screenshots/7.png)
+
+### Step 8: Image Acquisition
+
+FTK Imager started creating the forensic image from the physical drive.
+
+![Creating Image](screenshots/8.png)
+
+### Step 9: Image Verification
+
+After acquisition, FTK Imager verified the created forensic image.
+
+The verification process checks the integrity of the acquired image using hash values.
+
+![Image Verification](screenshots/9.png)
+
+### Step 10: Verification Result
+
+The verification result showed:
+
+- MD5 Verify Result: **Match**
+- SHA1 Verify Result: **Match**
+- Bad Blocks: **No bad blocks found in image**
+
+![Verification Results](screenshots/10.png)
+
+### Step 11: Image Summary
+
+The image summary provided details about the acquired physical drive.
+
+Important information included:
+
+- Source Type: Physical
+- Drive Model: SanDisk Cruzer Blade USB Device
+- Drive Interface Type: USB
+- Source Data Size: 59112 MB
+- Sector Count: 121061376
+- Bytes per Sector: 512
+
+![Image Summary](screenshots/11.png)
+
+### Step 12: Hash Verification
+
+The image summary showed that the computed and reported hash values matched.
+
+**MD5:**
+
+`9f1f7659712cde7bc536dd82f341b5ce`
+
+**SHA1:**
+
+`abaca319c85c310078f410c02f6b11951af63334`
+
+Both verification results were **Match**.
+
+![Hash Verification](screenshots/12.png)
+
+## Result
+
+The physical USB drive was successfully acquired using **AccessData FTK Imager 4.7.1.2** and converted into a **Raw (dd) forensic image**.
+
+The acquired image was successfully verified using MD5 and SHA1 hash values.
+
+## Verification Results
+
+| Parameter | Result |
+|---|---|
+| Image Type | Raw (dd) |
+| Source | Physical Drive |
+| Device | SanDisk Cruzer Blade USB Device |
+| Source Size | 59112 MB |
+| MD5 Verification | Match |
+| SHA1 Verification | Match |
+| Bad Blocks | No bad blocks found |
+
+**Therefore, the forensic image was successfully created and its integrity was verified using MD5 and SHA1 hash values.**
