@@ -173,3 +173,6 @@ The acquired image was successfully verified using MD5 and SHA1 hash values.
 | Bad Blocks | No bad blocks found |
 
 **Therefore, the forensic image was successfully created and its integrity was verified using MD5 and SHA1 hash values.**
+<img width="171" height="121" alt="1" src="https://github.com/user-attachments/assets/4bae6b46-0ee9-43cc-90b5-dfddbfe33be3" />
+
+<img width="171" height="121" alt="1" src="https://github.com/user-attachments/assets/c0a56ddd-c473-4d8f-835b-34a32a499ccd" />
