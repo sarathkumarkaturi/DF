@@ -65,11 +65,7 @@ java -jar .\StegExpose.jar testFolder
 
 The tool analyzed the images and identified three images as suspicious.
 
-### Result
 
-- `stego_6666458261_e455d262b5_z.png` – approximately **114785 bytes**
-- `stego_6672108499_85c582a7f9.png` – approximately **137047 bytes**
-- `stego_6672542201_532f70bffe.png` – approximately **67141 bytes**
 
 <img width="478" height="239" alt="3" src="https://github.com/user-attachments/assets/6604279e-fa26-4c54-aa37-a52bc9f16cba" />
 
