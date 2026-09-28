@@ -1,6 +1,4 @@
-# Ex. No. 10 — Use Ghidra to Disassemble and Analyze a Binary
-
-## Digital Forensics Lab
+# Experiment-10 Use Ghidra to Disassemble and Analyze a Binary
 
 ## Aim
 
